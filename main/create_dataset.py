@@ -91,4 +91,4 @@ print("Created dataset")
 df = pd.DataFrame(data)
 df.columns = movies
 df.index = users
-df.to_csv("filtered_dataset.csv")
+df.to_csv("full_dataset.csv")

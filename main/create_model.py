@@ -4,7 +4,7 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
 
-df_data = pd.read_csv('filtered_dataset.csv')
+df_data = pd.read_csv('full_dataset.csv')
 df_data.index = df_data.iloc[:, 0]
 df_data.index.name = "userID"
 df_data = df_data.drop(df_data.columns[0], axis=1)
