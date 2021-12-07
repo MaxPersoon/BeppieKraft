@@ -1,8 +1,11 @@
 import csv
 import pickle
 import pandas as pd
+from numpy import mean, std
 from scipy.sparse import csr_matrix
-from sklearn.neighbors import NearestNeighbors
+from sklearn.datasets import make_multilabel_classification
+from sklearn.model_selection import train_test_split, KFold, cross_val_score
+from sklearn.neighbors import NearestNeighbors, KNeighborsClassifier
 
 df_data = pd.read_csv('full_dataset.csv')
 df_data.index = df_data.iloc[:, 0]
@@ -14,8 +17,15 @@ mat_data = csr_matrix(df_data.values)
 with open("mat_data.pickle", "wb") as file:
     pickle.dump(mat_data, file)
 
-model_knn = NearestNeighbors(metric='cosine', algorithm='brute', n_neighbors=20, n_jobs=-1)
-model_knn.fit(mat_data)
+X = mat_data
+y = df_data.iloc[:,0]
+cv = KFold(n_splits=10)
+model_knn = KNeighborsClassifier(metric='cosine', algorithm='brute', n_neighbors=20, n_jobs=-1)
+scores = cross_val_score(model_knn, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
+print('Accuracy: %.3f (%.3f)' % (mean(scores), std(scores)))
+model_knn.fit(X,y)
+
+
 with open("model_knn.pickle", "wb") as file:
     pickle.dump(model_knn, file)
 
