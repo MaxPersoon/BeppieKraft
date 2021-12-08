@@ -8,6 +8,7 @@ from sklearn.datasets import make_multilabel_classification
 from sklearn.model_selection import train_test_split, KFold, cross_val_score
 from sklearn.neighbors import NearestNeighbors, KNeighborsClassifier
 
+os.chdir(os.getcwd().replace('\\individual_recommender', ''))
 df_data = pd.read_csv('dataset\\full_dataset.csv')
 df_data.index = df_data.iloc[:, 0]
 df_data = df_data.drop(df_data.columns[0], axis=1)
