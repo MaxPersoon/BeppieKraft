@@ -41,7 +41,7 @@ try:
         if title_to_index.get(movie_title) == largest_sum_index:
             top_recommended_movie_title = movie_title
             break
-    print(f"The group's top recommended movie is titled '{top_recommended_movie_title}' as it is the movie that has the"
-          f"largest sum of user ratings across all movies.")
+    print(f"The group's top recommended movie is titled '{top_recommended_movie_title}' as it is the movie that is most"
+          f" liked by the group as a whole.")
 except FileNotFoundError:
     print(f"There exists no file named '{file_name}'. Next time please enter the name of a file that does exist.")
