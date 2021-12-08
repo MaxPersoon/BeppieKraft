@@ -23,7 +23,7 @@ with open("individual_recommender\\mat_data.pickle", "wb") as file:
 # scores = cross_val_score(model_knn, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
 # print('Accuracy: %.3f (%.3f)' % (mean(scores), std(scores)))
 # model_knn.fit(X,y)
-model_knn = NearestNeighbors(metric='cosine', algorithm='brute', n_neighbors=20, n_jobs=-1)
+model_knn = NearestNeighbors(metric='cosine', algorithm='brute', n_neighbors=1, n_jobs=-1)
 model_knn.fit(mat_data)
 
 os.remove('individual_recommender\\model_knn.pickle')

@@ -1,3 +1,4 @@
+import os
 import csv
 import pandas as pd
 
@@ -5,10 +6,10 @@ print("Please enter the name of the file that houses the dataset:")
 file_name = input()
 
 try:
+    os.chdir(os.getcwd().replace('\\group_recommender', ''))
     df_data = pd.read_csv('dataset\\' + file_name)
     df_data.index = df_data.iloc[:, 0]
     df_data = df_data.drop(df_data.columns[0], axis=1)
-    print(df_data.head(5))
     data = df_data.values
 
     movie_indices = list(df_data.index)

@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-files = ['combined_data_1.txt', 'combined_data_2.txt', 'combined_data_3.txt',
-         'combined_data_4.txt']
+files = ['dataset\\combined_data_1.txt', 'dataset\\combined_data_2.txt', 'dataset\\combined_data_3.txt',
+         'dataset\\combined_data_4.txt']
 
 no_reviews_per_movie = []
 
@@ -30,7 +30,6 @@ for i in range(len(no_reviews_per_movie)):
 print("Filtered set of movies")
 
 print("Selected interval =", interval)
-print("Number of users ")
 print("Selected % of original dataset =", total_no_reviews / sum(no_reviews_per_movie) * 100)
 
 users = []  # contains IDs of users who have rated at least one movie that is within the specified interval
