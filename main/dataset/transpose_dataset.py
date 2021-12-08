@@ -3,7 +3,7 @@ import pandas as pd
 
 # Input = dataset where column indices are movieIDs and row indices are userIDs
 # Output = dataset where column indices are userIDs and row indices are movieIDs
-file_name = 'cropped_dataset.csv'
+file_name = 'full_dataset.csv'
 df_data = pd.read_csv(file_name)
 df_data.index = df_data.iloc[:, 0]
 df_data.index.name = "userID"

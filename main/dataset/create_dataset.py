@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-files = ['dataset\\combined_data_1.txt', 'dataset\\combined_data_2.txt', 'dataset\\combined_data_3.txt',
-         'dataset\\combined_data_4.txt']
+files = ['combined_data_1.txt', 'combined_data_2.txt', 'combined_data_3.txt',
+         'combined_data_4.txt']
 
 no_reviews_per_movie = []
 
